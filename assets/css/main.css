@@ -253,3 +253,14 @@ section.certs .cert:hover{ transform:translateY(-2px); box-shadow:0 10px 28px rg
   padding-top: 28px;
   border-top: 1px solid rgba(0,0,0,.08);
 }
+
+/* Fallback CSS fade (untuk browser tanpa View Transitions) */
+body.vt-fade-in { animation: vtFadeIn .35s ease both; }
+body.vt-fade-out{ animation: vtFadeOut .35s ease both; }
+
+@keyframes vtFadeIn  { from {opacity:0} to {opacity:1} }
+@keyframes vtFadeOut { from {opacity:1} to {opacity:0} }
+
+/* Halusin View Transitions (Chrome/Edge/Samsung ≥111) */
+::view-transition-group(*){ animation-duration:.38s; }
+::view-transition-old(*), ::view-transition-new(*){ animation-timing-function:ease; }

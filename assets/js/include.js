@@ -37,3 +37,36 @@ document.addEventListener('click', e=>{
   if(!m) return;
   if(e.target.closest('#navMenu a')) { m.classList.remove('is-open'); document.getElementById('navToggle')?.setAttribute('aria-expanded','false'); }
 });
+
+// Smooth cross-page transitions
+(function smoothNav(){
+  const DUR = 380; // ms (ubah kalau mau lebih lambat/cepat)
+
+  // beri efek fade-in saat halaman dibuka
+  document.body.classList.add('vt-fade-in');
+
+  document.addEventListener('click', (e)=>{
+    const a = e.target.closest('a');
+    if (!a) return;
+
+    // Hindari eksternal, target _blank, download, atau hash di halaman sama
+    const url = new URL(a.href, location.href);
+    const internal = url.origin === location.origin;
+    const samePageHash = url.pathname === location.pathname && url.hash;
+    const newTab = a.target === '_blank' || a.hasAttribute('download');
+
+    if (!internal || newTab || samePageHash) return;
+
+    e.preventDefault();
+
+    // Browser baru: View Transitions API
+    if (document.startViewTransition) {
+      document.startViewTransition(() => { location.href = a.href; });
+      return;
+    }
+
+    // Fallback: CSS fade-out lalu pindah halaman
+    document.body.classList.add('vt-fade-out');
+    setTimeout(()=>{ location.href = a.href; }, DUR);
+  }, true);
+})();
