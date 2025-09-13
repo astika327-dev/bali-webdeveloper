@@ -264,3 +264,49 @@ body.vt-fade-out{ animation: vtFadeOut .35s ease both; }
 /* Halusin View Transitions (Chrome/Edge/Samsung ≥111) */
 ::view-transition-group(*){ animation-duration:.38s; }
 ::view-transition-old(*), ::view-transition-new(*){ animation-timing-function:ease; }
+
+.site-footer {
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 14px;
+  color: #aaa;
+  border-top: 1px solid #222;
+}
+
+.legal-links {
+  margin-top: 8px;
+}
+
+.legal-links a {
+  font-size: 12px; /* lebih kecil */
+  color: #888;
+  margin: 0 8px;
+  text-decoration: none;
+}
+
+.legal-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.legal-header {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.home-btn {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--brand, #c49a6c); /* aksen coklat muda */
+  text-decoration: none;
+  border: 1px solid var(--brand, #c49a6c);
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.home-btn:hover {
+  background: var(--brand, #c49a6c);
+  color: #2b1d17; /* coklat tua */
+}
