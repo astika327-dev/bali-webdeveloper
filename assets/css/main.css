@@ -19,6 +19,25 @@ a{color:inherit}
 /* Nav */
 .nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-weight:600}
 .nav a.active{color:var(--brand);border-bottom:2px solid var(--brand)}
+/* DESKTOP baseline */
+
+
+/* MOBILE */
+@media (max-width:820px){
+  .nav-toggle{
+    display:inline-flex;align-items:center;justify-content:center;
+    border:1px solid rgba(0,0,0,.12);background:var(--sand);
+    border-radius:12px;padding:8px 10px;cursor:pointer
+  }
+  .nav{
+    position:absolute;right:0;top:calc(100% + 8px);
+    background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;
+    box-shadow:var(--shadow);padding:10px;display:none;
+    flex-direction:column;gap:6px;min-width:200px;margin-left:0
+  }
+  .nav.open{display:flex}
+}
+
 /* Sections */
 .section{padding:64px 0}
 .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
@@ -310,3 +329,46 @@ body.vt-fade-out{ animation: vtFadeOut .35s ease both; }
   background: var(--brand, #c49a6c);
   color: #2b1d17; /* coklat tua */
 }
+
+.projects{display:grid;gap:18px}
+@media(min-width:720px){.projects{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}}
+
+.project-card{
+  background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:20px;padding:16px;
+  box-shadow:var(--shadow)
+}
+.project-card header h3{margin:0 0 6px;color:var(--cocoa-dark)}
+.project-card p{margin:0 0 10px;color:rgba(0,0,0,.75)}
+
+.slider{position:relative;border-radius:16px;overflow:hidden;background:var(--sand-light)}
+/* Rasio 16:9; ubah ke 4:3 jika perlu */
+.slider::before{content:"";display:block;padding-top:56%}
+.slides{
+  position:absolute;inset:0;display:flex;transition:transform .5s ease-in-out
+}
+.slides img{width:100%;object-fit:cover;flex:0 0 100%}
+
+.slider > .nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(0,0,0,.4);color:#fff;border:none;border-radius:10px;
+  padding:6px 10px;cursor:pointer
+}
+.slider > .nav:hover{background:rgba(0,0,0,.55)}
+.slider > .nav.prev{left:8px}
+.slider > .nav.next{right:8px}
+
+.dots{
+  position:absolute;left:50%;transform:translateX(-50%);bottom:8px;
+  display:flex;gap:6px;background:rgba(255,255,255,.7);
+  padding:4px 6px;border-radius:999px
+}
+.dots button{
+  width:8px;height:8px;border-radius:999px;border:none;background:rgba(0,0,0,.25);
+  cursor:pointer
+}
+.dots button.active{background:var(--accent)}
+
+.project-card .actions{display:flex;gap:10px;margin-top:12px}
+
+.slider::before{ padding-top:75%; } /* 4:3 */
+

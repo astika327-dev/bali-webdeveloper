@@ -70,3 +70,71 @@ document.addEventListener('click', e=>{
     setTimeout(()=>{ location.href = a.href; }, DUR);
   }, true);
 })();
+
+// Slider sederhana
+// ===== Project Screenshot Slider =====
+class Slider {
+  constructor(root){
+    this.root = root;
+    this.track = root.querySelector('.slides');
+    this.slides = Array.from(this.track.children);
+    this.prevBtn = root.querySelector('.prev');
+    this.nextBtn = root.querySelector('.next');
+    this.dotsWrap = root.querySelector('.dots');
+
+    this.index = 0;
+    this.len = this.slides.length;
+    this.intervalMs = parseInt(root.dataset.interval || '3500', 10);
+    this.autoplay = root.dataset.autoplay === 'true';
+
+    // dots
+    this.dots = this.slides.map((_,i)=>{
+      const b=document.createElement('button');
+      b.addEventListener('click',()=>this.go(i,true));
+      this.dotsWrap.appendChild(b);
+      return b;
+    });
+    this.update();
+
+    // nav
+    this.prevBtn.addEventListener('click',()=>this.prev(true));
+    this.nextBtn.addEventListener('click',()=>this.next(true));
+
+    // autoplay + pause on hover
+    if (this.autoplay) this.start();
+    root.addEventListener('mouseenter',()=>this.stop());
+    root.addEventListener('mouseleave',()=>this.start());
+
+    // swipe (touch)
+    this.bindSwipe();
+  }
+  go(i,manual=false){
+    this.index = (i+this.len)%this.len;
+    this.track.style.transform = `translateX(-${this.index*100}%)`;
+    this.update();
+    if (manual && this.autoplay){ this.restart(); }
+  }
+  next(m=false){ this.go(this.index+1,m); }
+  prev(m=false){ this.go(this.index-1,m); }
+  update(){
+    this.dots.forEach((d,i)=>d.classList.toggle('active', i===this.index));
+  }
+  start(){
+    if (this.timer) return;
+    this.timer = setInterval(()=>this.next(), this.intervalMs);
+  }
+  stop(){ clearInterval(this.timer); this.timer=null; }
+  restart(){ this.stop(); this.start(); }
+  bindSwipe(){
+    let x0=null, locked=false;
+    const unify = e => (e.changedTouches? e.changedTouches[0]:e);
+    this.root.addEventListener('touchstart', e => { x0 = unify(e).clientX; locked=true; }, {passive:true});
+    this.root.addEventListener('touchend', e => {
+      if (!locked || x0===null) return;
+      let dx = unify(e).clientX - x0;
+      if (Math.abs(dx) > 40) (dx>0 ? this.prev(true) : this.next(true));
+      x0=null; locked=false;
+    }, {passive:true});
+  }
+}
+document.querySelectorAll('.slider').forEach(s => new Slider(s));
