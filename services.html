@@ -27,15 +27,18 @@
 
   <section class="section container mt-5">
   <h2 class="text-center">Pricing Plans</h2>
-  <p class="text-center muted">Choose a plan that fits your brand or business</p>
+  <p class="text-center muted">Built for founders, villas, cafés, UMKM and growing brands</p>
 
   <div class="grid cols-3 mt-4">
 
     <!-- Starter -->
-    <div class="card pricing">
-      <h3>Starter</h3>
-      <p class="price">Rp 800.000</p>
-      <ul>
+    <article class="card pricing">
+      <header class="pricing-head">
+        <h3>Starter</h3>
+        <span class="sub">Launch-ready Landing Page</span>
+      </header>
+      <p class="price"><span class="currency">Rp</span> 800.000</p>
+      <ul class="features">
         <li>1–3 section landing page</li>
         <li>Basic custom design</li>
         <li>Responsive & accessible</li>
@@ -43,14 +46,19 @@
         <li>Basic SEO (semantic HTML)</li>
         <li>Standard analytics setup</li>
       </ul>
-      <a href="contact.html" class="btn">Start Now</a>
-    </div>
+      <a href="contact.html" class="btn w-100" aria-label="Start Starter plan">Start Now</a>
+      <p class="tiny muted mt-1">ETA 3–5 days • 1 revision</p>
+    </article>
 
-    <!-- Growth (highlight) -->
-    <div class="card pricing featured">
-      <h3>Growth</h3>
-      <p class="price">Rp 2.500.000</p>
-      <ul>
+    <!-- Growth (featured) -->
+    <article class="card pricing featured" aria-label="Most popular plan">
+      <div class="ribbon">Most Popular</div>
+      <header class="pricing-head">
+        <h3>Growth</h3>
+        <span class="sub">Small Business</span>
+      </header>
+      <p class="price"><span class="currency">Rp</span> 2.500.000</p>
+      <ul class="features">
         <li>Up to 5–7 custom pages</li>
         <li>Core Web Vitals checked</li>
         <li>Copy polish (EN/ID, 2 revisions)</li>
@@ -58,14 +66,18 @@
         <li>Simple analytics dashboard</li>
         <li>3-month Care Plan</li>
       </ul>
-      <a href="contact.html" class="btn btn-brand">Most Popular</a>
-    </div>
+      <a href="contact.html" class="btn btn-brand w-100">Start Growth</a>
+      <p class="tiny muted mt-1">ETA 1–2 weeks • 2 revisions</p>
+    </article>
 
     <!-- Premium -->
-    <div class="card pricing">
-      <h3>Premium</h3>
-      <p class="price">Rp 5.500.000</p>
-      <ul>
+    <article class="card pricing">
+      <header class="pricing-head">
+        <h3>Premium</h3>
+        <span class="sub">Brand-level Experience</span>
+      </header>
+      <p class="price"><span class="currency">Rp</span> 5.500.000</p>
+      <ul class="features">
         <li>12–15 custom design pages</li>
         <li>Premium UI + light animations</li>
         <li>Full copy polish (EN/ID, 4 revisions)</li>
@@ -74,11 +86,56 @@
         <li>Analytics setup + reporting</li>
         <li>6-month Care Plan</li>
       </ul>
-      <a href="contact.html" class="btn">Get Premium</a>
-    </div>
+      <a href="contact.html" class="btn w-100">Get Premium</a>
+      <p class="tiny muted mt-1">ETA 3–4 weeks • 4 revisions</p>
+    </article>
 
   </div>
 </section>
+
+<section class="container mt-4">
+  <h3 class="text-center">Add-ons</h3>
+  <div class="grid cols-3 mt-2">
+    <div class="card">
+      <h4>Booking Integration</h4>
+      <p class="muted">Channel manager / booking widget (e.g., SiteMinder, Cloudbeds, or custom form)</p>
+      <p class="price-sm">from Rp 1.500.000</p>
+    </div>
+    <div class="card">
+      <h4>Brand Content Pack</h4>
+      <p class="muted">Copy refinement, menu/rooms descriptions (EN/ID), assets organization</p>
+      <p class="price-sm">from Rp 900.000</p>
+    </div>
+    <div class="card">
+      <h4>Photo Optimization</h4>
+      <p class="muted">Hero & gallery curation, compression, EXIF/alt text, lazy-load setup</p>
+      <p class="price-sm">from Rp 600.000</p>
+    </div>
+  </div>
+</section>
+
+<section class="container mt-5">
+  <h3 class="text-center">FAQ</h3>
+  <div class="grid cols-2 mt-2">
+    <div class="card">
+      <h4>What’s included vs not included?</h4>
+      <p>All plans include design, build, on-page SEO, and basic analytics. Domain/hosting, paid plugins, and third-party subscriptions are billed separately unless stated in the proposal.</p>
+    </div>
+    <div class="card">
+      <h4>How do revisions work?</h4>
+      <p>Each plan includes the listed number of revision rounds. Extra rounds or scope changes are available as add-ons.</p>
+    </div>
+    <div class="card">
+      <h4>Payment & timeline?</h4>
+      <p>50% deposit to start, 50% on launch. Estimated timelines are shown per plan and adjusted after content is finalized.</p>
+    </div>
+    <div class="card">
+      <h4>Care Plan details?</h4>
+      <p>Care Plan covers small content updates, uptime checks, and scheduled backups. Feature requests beyond “small” are quoted separately.</p>
+    </div>
+  </div>
+</section>
+
 
   <div data-include="partials/footer.html"></div>
   <script src="assets/js/include.js"></script>

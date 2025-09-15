@@ -372,51 +372,25 @@ body.vt-fade-out{ animation: vtFadeOut .35s ease both; }
 
 .slider::before{ padding-top:75%; } /* 4:3 */
 
-.pricing {
-  text-align: center;
-  padding: 2rem;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.pricing { text-align:center; padding:2rem; border:1px solid #eee; border-radius:14px; transition:.2s; }
+.pricing:hover { transform: translateY(-6px); box-shadow:0 10px 24px rgba(0,0,0,.08); }
+.pricing-head h3 { margin:0; color: var(--brand); }
+.pricing .sub { display:block; font-size:.9rem; color:var(--muted); margin-top:.25rem; }
+.price { font-size:1.9rem; font-weight:700; margin:.8rem 0 1rem; }
+.price .currency { font-size:1rem; vertical-align: super; margin-right:.15rem; }
+.features { list-style:none; padding:0; margin:0 0 1.2rem; text-align:left; }
+.features li { padding:.35rem 0; border-bottom:1px dashed #eee; }
+.features li:last-child { border-bottom:0; }
+.btn.w-100 { display:block; width:100%; }
+.featured { background: var(--brand-soft); border:2px solid var(--brand); transform: scale(1.03); }
+.ribbon {
+  position:absolute; top:12px; right:-8px; background: var(--brand);
+  color:#fff; padding:.3rem .6rem; font-size:.8rem; border-radius:6px;
 }
-.pricing:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-.pricing h3 {
-  margin-bottom: .5rem;
-  color: var(--brand);
-}
-.pricing .price {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: var(--text);
-}
-.pricing ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.5rem 0;
-}
-.pricing ul li {
-  margin: .4rem 0;
-  font-size: .95rem;
-}
-.pricing .btn {
-  display: inline-block;
-  padding: .6rem 1.2rem;
-  border-radius: 8px;
-  background: var(--muted);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-}
-.pricing .btn-brand {
-  background: var(--brand);
-}
-.featured {
-  background: var(--brand-soft);
-  border: 2px solid var(--brand);
-  transform: scale(1.05);
-}
+.tiny { font-size:.8rem; }
+
+.price-sm { font-weight:600; margin-top:.4rem; }
+
+.lead { font-size: 1.05rem; line-height: 1.8; }
+.text-center { text-align: center; }
 
