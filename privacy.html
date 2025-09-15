@@ -34,6 +34,15 @@
       margin-bottom: 20px;
     }
   </style>
+  <!-- inject head partial -->
+<script>
+(async () => {
+  const res = await fetch('/partials/head.html', { cache: 'no-cache' });
+  const html = await res.text();
+  document.head.insertAdjacentHTML('beforeend', html);
+})();
+</script>
+
 </head>
 <body class="legal">
   <main>

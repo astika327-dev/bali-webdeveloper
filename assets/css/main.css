@@ -372,3 +372,51 @@ body.vt-fade-out{ animation: vtFadeOut .35s ease both; }
 
 .slider::before{ padding-top:75%; } /* 4:3 */
 
+.pricing {
+  text-align: center;
+  padding: 2rem;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pricing:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.pricing h3 {
+  margin-bottom: .5rem;
+  color: var(--brand);
+}
+.pricing .price {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+.pricing ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+.pricing ul li {
+  margin: .4rem 0;
+  font-size: .95rem;
+}
+.pricing .btn {
+  display: inline-block;
+  padding: .6rem 1.2rem;
+  border-radius: 8px;
+  background: var(--muted);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.pricing .btn-brand {
+  background: var(--brand);
+}
+.featured {
+  background: var(--brand-soft);
+  border: 2px solid var(--brand);
+  transform: scale(1.05);
+}
+

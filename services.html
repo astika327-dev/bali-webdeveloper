@@ -8,39 +8,78 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
+  <!-- inject head partial -->
+<script>
+(async () => {
+  const res = await fetch('/partials/head.html', { cache: 'no-cache' });
+  const html = await res.text();
+  document.head.insertAdjacentHTML('beforeend', html);
+})();
+</script>
+
 </head>
 
-<body data-page="services">
+ <body data-page="services">
   <div data-include="partials/header.html"></div>
   <main class="section container">
-    <h1>Services</h1>
-    <div class="grid cols-3 mt-3">
-      <div class="card">
-        <h3>Website & Landing Page</h3>
-        <ul class="clean">
-          <li>Custom design & layout</li>
-          <li>Responsive & accessible</li>
-          <li>Copy polish (EN/ID)</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Performance & SEO</h3>
-        <ul class="clean">
-          <li>Core Web Vitals tuning</li>
-          <li>Semantic HTML & metadata</li>
-          <li>Basic analytics setup</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Care Plan</h3>
-        <ul class="clean">
-          <li>Content updates</li>
-          <li>Small features & fixes</li>
-          <li>Uptime & backup</li>
-        </ul>
-      </div>
+
+    
+
+  <section class="section container mt-5">
+  <h2 class="text-center">Pricing Plans</h2>
+  <p class="text-center muted">Choose a plan that fits your brand or business</p>
+
+  <div class="grid cols-3 mt-4">
+
+    <!-- Starter -->
+    <div class="card pricing">
+      <h3>Starter</h3>
+      <p class="price">Rp 800.000</p>
+      <ul>
+        <li>1–3 section landing page</li>
+        <li>Basic custom design</li>
+        <li>Responsive & accessible</li>
+        <li>Light copy polish (EN/ID)</li>
+        <li>Basic SEO (semantic HTML)</li>
+        <li>Standard analytics setup</li>
+      </ul>
+      <a href="contact.html" class="btn">Start Now</a>
     </div>
-  </main>
+
+    <!-- Growth (highlight) -->
+    <div class="card pricing featured">
+      <h3>Growth</h3>
+      <p class="price">Rp 2.500.000</p>
+      <ul>
+        <li>Up to 5–7 custom pages</li>
+        <li>Core Web Vitals checked</li>
+        <li>Copy polish (EN/ID, 2 revisions)</li>
+        <li>Basic SEO + performance optimization</li>
+        <li>Simple analytics dashboard</li>
+        <li>3-month Care Plan</li>
+      </ul>
+      <a href="contact.html" class="btn btn-brand">Most Popular</a>
+    </div>
+
+    <!-- Premium -->
+    <div class="card pricing">
+      <h3>Premium</h3>
+      <p class="price">Rp 5.500.000</p>
+      <ul>
+        <li>12–15 custom design pages</li>
+        <li>Premium UI + light animations</li>
+        <li>Full copy polish (EN/ID, 4 revisions)</li>
+        <li>Complete performance tuning</li>
+        <li>Advanced on-page SEO</li>
+        <li>Analytics setup + reporting</li>
+        <li>6-month Care Plan</li>
+      </ul>
+      <a href="contact.html" class="btn">Get Premium</a>
+    </div>
+
+  </div>
+</section>
+
   <div data-include="partials/footer.html"></div>
   <script src="assets/js/include.js"></script>
 </body>

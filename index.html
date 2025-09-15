@@ -3,23 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Bali-webDeveloper — Home</title>
+  <title>Bali-webDevelover — Home</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
    <!-- SEO & OG -->
-<meta property="og:title" content="Bali WebDeveloper - Professional Website Services">
-<meta property="og:description" content="Kami membantu bisnis Anda tampil profesional di dunia digital dengan website modern, cepat, dan elegan.">
-<meta property="og:image" content="https://bali-webdeveloper.com/hero.svg">
-<meta property="og:url" content="https://bali-webdeveloper.com/">
-<meta property="og:type" content="website">
-
-<!-- Twitter card (opsional, bagus juga untuk WA kadang) -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Bali WebDeveloper - Professional Website Services">
-<meta name="twitter:description" content="Website modern, cepat, dan elegan untuk bisnis Anda.">
-<meta name="twitter:image" content="https://bali-webdeveloper.com/hero.svg">
+     <!-- inject head partial -->
+<script>
+(async () => {
+  const res = await fetch('/partials/head.html', { cache: 'no-cache' });
+  const html = await res.text();
+  document.head.insertAdjacentHTML('beforeend', html);
+})();
+</script>
 
 </head>
 
@@ -31,19 +28,19 @@
         <span class="kicker">Boutique Web Studio in Bali</span>
         <h1>Fast, elegant websites that convert.</h1>
         <p>We design & ship premium websites, landing pages and micro‑apps for founders, villas, cafés and brands. Built clean, SEO‑ready, blazing fast.</p>
-        <a class="cta mt-3" href="contact.html">Start a Project</a>
+        <a class="cta mt-3" href="services.html">Start a Project</a>
       </div>
        <div class="devices">
   <figure class="device laptop">
     <div class="bezel">
-      <img src="assets/img/Screenshot .PNG" alt="Project on laptop">
+      <img src="assets/img/homeimage2.png" alt="Project on laptop">
     </div>
     <span class="foot"></span>
   </figure>
 
   <figure class="device phone">
     <div class="bezel">
-      <img src="assets/img/Screenshot .PNG" alt="Project on phone">
+      <img src="assets/img/homeimage1.png" alt="Project on phone">
     </div>
   </figure>
 </div>

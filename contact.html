@@ -8,6 +8,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- inject head partial -->
+<script>
+(async () => {
+  const res = await fetch('/partials/head.html', { cache: 'no-cache' });
+  const html = await res.text();
+  document.head.insertAdjacentHTML('beforeend', html);
+})();
+</script>
+
 </head>
 
 <body data-page="contact">

@@ -8,6 +8,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- inject head partial -->
+<script>
+(async () => {
+  const res = await fetch('/partials/head.html', { cache: 'no-cache' });
+  const html = await res.text();
+  document.head.insertAdjacentHTML('beforeend', html);
+})();
+</script>
+
 </head>
 <body data-page="portfolio">
   <div data-include="partials/header.html"></div>
@@ -16,29 +26,8 @@
     <div class="grid cols-3 mt-3">
       <article class="card">
         <h3>MiniTools</h3>
-        <p>Collection of small utilities (UI polish, clean code). Deployed on GitHub Pages.</p>
-        <a class="cta mt-3" href="https://astika327-dev.github.io/minitools" target="_blank" rel="noopener">View</a>
-      </article>
-      <article class="card">
-        <h3>Ops Playbook</h3>
-        <p>Unified SOP/QA kit: checklists, incident notes, and audit templates.</p>
-        <a class="cta mt-3" href="https://astika327-dev.github.io/opsplaybook-hospitality/" target="_blank" rel="noopener">View</a>
-      </article>
-      <article class="card">
-        <h3>Portfolio</h3>
-        <p>Refined personal portfolio with better structure, accessibility and SEO.</p>
-        <a class="cta mt-3" href="https://astika.is-a.dev" target="_blank" rel="noopener">Live</a>
-      </article>
-    </div>
-    <!-- ini slide gambar -->
-<section class="projects">
-  <!-- PROJECT 1 -->
-  <article class="project-card">
-    <header>
-      <h5>MiniTools</h5>
-    </header>
 
-    <div class="slider" data-autoplay="true" data-interval="3500">
+<div class="slider" data-autoplay="true" data-interval="3500">
       <div class="slides">
         <img src="assets/img/ss/ssminitool1.png" alt="MiniTools screenshot 1" loading="lazy">
         <img src="assets/img/ss/ssminitool2.png" alt="MiniTools screenshot 2" loading="lazy">
@@ -51,19 +40,13 @@
       <div class="dots" aria-label="Slide indicators"></div>
     </div>
 
-    <div class="actions">
-      <!-- <a class="btn btn-primary" href="https://astika327-dev.github.io/minitools/" target="_blank" rel="noopener">View</a> -->
-      <!-- <a class="btn btn-ghost" href="https://github.com/astika327-dev/minitools" target="_blank" rel="noopener">Code</a> -->
-    </div>
-  </article>
+        <p>Collection of small utilities (UI polish, clean code). Deployed on GitHub Pages.</p>
+        <a class="cta mt-3" href="https://astika327-dev.github.io/minitools" target="_blank" rel="noopener">View</a>
+      </article>
+      <article class="card">
+        <h3>Ops Playbook</h3>
 
-  <!-- PROJECT 2 -->
-  <article class="project-card">
-    <header>
-      <h5>OpsPlaybooks</h5>
-    </header>
-
-    <div class="slider" data-autoplay="true" data-interval="3500">
+<div class="slider" data-autoplay="true" data-interval="3500">
       <div class="slides">
         <img src="assets/img/ss/ssops1.png" alt="Markdown Previewer screenshot 1" loading="lazy">
         <img src="assets/img/ss/ssops2.png" alt="Markdown Previewer screenshot 2" loading="lazy">
@@ -74,18 +57,13 @@
       <div class="dots"></div>
     </div>
 
-    <!-- <div class="actions">
-      <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Spec</a>
-    </div> -->
-  </article>
+        <p>Unified SOP/QA kit: checklists, incident notes, and audit templates.</p>
+        <a class="cta mt-3" href="https://astika327-dev.github.io/opsplaybook-hospitality/" target="_blank" rel="noopener">View</a>
+      </article>
+      <article class="card">
+        <h3>Portfolio</h3>
 
-  <!-- PROJECT 3 -->
-  <article class="project-card">
-    <header>
-      <h5>Portfolio</h5>
-    </header>
-
-    <div class="slider" data-autoplay="true" data-interval="3500">
+<div class="slider" data-autoplay="true" data-interval="3500">
       <div class="slides">
         <img src="assets/img/ss/ssporto1.png" alt="Portfolio v2 screenshot 1" loading="lazy">
         <img src="assets/img/ss/ssporto2.png" alt="Portfolio v2 screenshot 2" loading="lazy">
@@ -95,13 +73,10 @@
       <div class="dots"></div>
     </div>
 
-    <!-- <div class="actions">
-      <a class="btn btn-primary" href="https://bali-webdevelover.com/" target="_blank" rel="noopener">Live</a>
-    </div> -->
-  </article>
-</section>
-
-<!-- slide gambar end -->
+        <p>Refined personal portfolio with better structure, accessibility and SEO.</p>
+        <a class="cta mt-3" href="https://astika.is-a.dev" target="_blank" rel="noopener">Live</a>
+      </article>
+    </div>
 
     <section class="mt-6">
       <span class="kicker">Certifications</span>
