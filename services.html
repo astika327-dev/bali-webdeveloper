@@ -9,13 +9,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
   <!-- inject head partial -->
-<script>
+<script defer>
 (async () => {
-  const res = await fetch('/partials/head.html', { cache: 'no-cache' });
-  const html = await res.text();
-  document.head.insertAdjacentHTML('beforeend', html);
+  try {
+    const res = await fetch('/partials/head.html', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('Failed to load head partial');
+    const html = await res.text();
+    document.head.insertAdjacentHTML('beforeend', html);
+  } catch (err) {
+    console.error(err);
+  }
 })();
 </script>
+
 
 </head>
 
@@ -135,6 +141,7 @@
     </div>
   </div>
 </section>
+  </main>
 
 
   <div data-include="partials/footer.html"></div>

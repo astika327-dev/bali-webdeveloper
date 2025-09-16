@@ -10,13 +10,19 @@
   <link rel="stylesheet" href="assets/css/main.css">
 
   <!-- inject head partial -->
-<script>
+<script defer>
 (async () => {
-  const res = await fetch('/partials/head.html', { cache: 'no-cache' });
-  const html = await res.text();
-  document.head.insertAdjacentHTML('beforeend', html);
+  try {
+    const res = await fetch('/partials/head.html', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('Failed to load head partial');
+    const html = await res.text();
+    document.head.insertAdjacentHTML('beforeend', html);
+  } catch (err) {
+    console.error(err);
+  }
 })();
 </script>
+
 
 </head>
 
@@ -24,23 +30,45 @@
   <div data-include="partials/header.html"></div>
   <main class="section container">
     <h1>Contact</h1>
-    <p class="mt-3">Ready to start? Reach out via WhatsApp or email.</p>
-    <div class="grid cols-3 mt-3">
-      <div class="card">
+    <p class="mt-3 text-center muted">
+      Let’s talk about your project — I usually reply within 24 hours.
+    </p>
+
+    <div class="grid cols-3 mt-4">
+      <!-- WhatsApp -->
+      <div class="card contact-card">
         <h3>WhatsApp</h3>
-        <a class="cta mt-3" href="https://wa.me/6282146178461" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <p class="muted">Fastest response</p>
+        <a class="btn btn-brand mt-2" href="https://wa.me/6282146178461" target="_blank" rel="noopener">
+          Chat on WhatsApp
+        </a>
       </div>
-      <div class="card">
+
+      <!-- Email -->
+      <div class="card contact-card">
         <h3>Email</h3>
-        <a class="cta mt-3" href="mailto:astika327@gmail.com">Send Email</a>
+        <p class="muted">For proposals or longer briefs</p>
+        <a class="btn mt-2" href="mailto:astika327@gmail.com">
+          Send Email
+        </a>
       </div>
-      <div class="card">
+
+      <!-- GitHub -->
+      <div class="card contact-card">
         <h3>GitHub</h3>
-        <a class="cta mt-3" href="https://github.com/astika327-dev" target="_blank" rel="noopener">@astika327-dev</a>
+        <p class="muted">View my code & projects</p>
+        <a class="btn mt-2" href="https://github.com/astika327-dev" target="_blank" rel="noopener">
+          @astika327-dev
+        </a>
       </div>
     </div>
+
+    <p class="mt-5 text-center muted">📍 Based in Bali, Indonesia</p>
   </main>
+
   <div data-include="partials/footer.html"></div>
   <script src="assets/js/include.js"></script>
 </body>
+
+
 </html>

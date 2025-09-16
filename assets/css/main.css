@@ -389,8 +389,52 @@ body.vt-fade-out{ animation: vtFadeOut .35s ease both; }
 }
 .tiny { font-size:.8rem; }
 
-.price-sm { font-weight:600; margin-top:.4rem; }
+.price-sm { font-weight:600; margin-top:.4rem;
+ }
 
 .lead { font-size: 1.05rem; line-height: 1.8; }
 .text-center { text-align: center; }
+
+/* contact form */
+.contact-card {
+  text-align: center;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: .2s;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+  border-color: var(--brand);
+}
+
+/* Tombol konsisten brand */
+.btn {
+  display: inline-block;
+  padding: .7rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: .2s;
+}
+
+.btn-brand {
+  background: var(--brand);
+  color: #fff;
+}
+
+.btn-brand:hover {
+  background: #734a2b; /* lebih gelap */
+}
+
+.btn {
+  background: var(--brand-soft);
+  color: var(--brand);
+}
+
+.btn:hover {
+  background: #d9c2a8;
+}
 

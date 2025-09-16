@@ -10,13 +10,19 @@
   <link rel="stylesheet" href="assets/css/main.css">
 
   <!-- inject head partial -->
-<script>
+<script defer>
 (async () => {
-  const res = await fetch('/partials/head.html', { cache: 'no-cache' });
-  const html = await res.text();
-  document.head.insertAdjacentHTML('beforeend', html);
+  try {
+    const res = await fetch('/partials/head.html', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('Failed to load head partial');
+    const html = await res.text();
+    document.head.insertAdjacentHTML('beforeend', html);
+  } catch (err) {
+    console.error(err);
+  }
 })();
 </script>
+
 
 </head>
 
