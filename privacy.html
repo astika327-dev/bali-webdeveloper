@@ -1,83 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <div>
-   <header class="legal-header">
-    <a href="index.html" class="home-btn">Home →</a>
-  </header>
-  </div>
-  <title>Privacy Policy - Bali Web Developer</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    body.legal {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 20px;
-      background: var(--bg, #f2e9e4);
-      color: var(--ink, #2b1d17);
-      font-family: system-ui, sans-serif;
-      line-height: 1.7;
-    }
-    body.legal h1, 
-    body.legal h2 {
-      color: var(--brand, #c49a6c);
-      margin-bottom: 10px;
-    }
-    body.legal a {
-      color: var(--brand, #c49a6c);
-      text-underline-offset: 3px;
-    }
-    body.legal .updated {
-      opacity: .8;
-      margin-bottom: 20px;
-    }
-  </style>
-  <!-- inject head partial -->
-<script defer>
-(async () => {
-  try {
-    const res = await fetch('/partials/head.html', { cache: 'no-cache' });
-    if (!res.ok) throw new Error('Failed to load head partial');
-    const html = await res.text();
-    document.head.insertAdjacentHTML('beforeend', html);
-  } catch (err) {
-    console.error(err);
-  }
-})();
-</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Privacy Policy — Bali WebDevelover</title>
+  <meta name="description" content="Read the Bali WebDevelover privacy policy covering data collection, usage, cookies, and contact details for privacy requests.">
+  <meta name="author" content="Bali WebDevelover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="color-scheme" content="light">
+  <link rel="canonical" href="https://bali-webdevelover.com/privacy">
 
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Privacy Policy — Bali WebDevelover">
+  <meta property="og:description" content="How Bali WebDevelover handles personal data, cookies, and client information.">
+  <meta property="og:url" content="https://bali-webdevelover.com/privacy">
+  <meta property="og:site_name" content="Bali WebDevelover">
+  <meta property="og:image" content="https://bali-webdevelover.com/assets/img/logos/ogimg.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Bali WebDevelover privacy policy">
+  <meta property="og:locale" content="id_ID">
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacy Policy — Bali WebDevelover">
+  <meta name="twitter:description" content="How Bali WebDevelover handles personal data, cookies, and client information.">
+  <meta name="twitter:image" content="https://bali-webdevelover.com/assets/img/logos/ogimg.png">
+  <meta name="twitter:image:alt" content="Bali WebDevelover privacy policy">
+
+  <!-- Icons / PWA -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/logos/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/logos/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#8B5E34">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PrivacyPolicy",
+      "name": "Bali WebDevelover Privacy Policy",
+      "description": "Details on Bali WebDevelover data collection, use, storage, and contact information for privacy requests.",
+      "url": "https://bali-webdevelover.com/privacy"
+    }
+  </script>
 </head>
-<body class="legal">
-  <main>
+<body data-page="privacy">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div data-include="partials/header.html"></div>
+  <main id="main" class="section legal">
     <h1>Privacy Policy</h1>
     <p class="updated">Last updated: September 2025</p>
 
+    <p>We respect your privacy. This policy explains what information we collect, why we collect it, and how it is used and protected.</p>
+
     <h2>1. Information We Collect</h2>
-    <p>We may collect personal details you provide, such as your name, email, phone number, or company, when you contact us for services.</p>
+    <p>When you contact us for services we may collect personal details such as your name, email address, phone number, company, and project notes.</p>
 
-    <h2>2. Use of Information</h2>
-    <p>Information is used to respond to inquiries, deliver services, and improve communication with clients.</p>
+    <h2>2. How We Use Information</h2>
+    <p>The information we collect is used to respond to inquiries, prepare proposals, deliver contracted services, and maintain project communication.</p>
 
-    <h2>3. Cookies</h2>
-    <p>Our website may use simple cookies to improve browsing experience. You can disable cookies in your browser settings.</p>
+    <h2>3. Cookies &amp; Analytics</h2>
+    <p>This site may use lightweight analytics or essential cookies to understand traffic patterns and improve the browsing experience. You can adjust your browser settings to refuse cookies.</p>
 
     <h2>4. Data Sharing</h2>
-    <p>We do not sell personal data. We may share limited information only when required by Indonesian law or with trusted partners for service delivery.</p>
+    <p>We do not sell or rent your personal information. Limited sharing may occur with trusted partners strictly for project delivery or when required by Indonesian law.</p>
 
     <h2>5. Data Security</h2>
-    <p>We apply reasonable measures to protect data, but no system is completely secure.</p>
+    <p>Reasonable technical and organizational measures are in place to protect personal information, but no system is completely immune from risk.</p>
 
     <h2>6. Your Rights</h2>
-    <p>You may request access, correction, or deletion of your data in line with Indonesian regulations. Contact us for requests.</p>
+    <p>You may request access, correction, or deletion of your personal data in line with Indonesian regulations. We will respond to valid requests promptly.</p>
 
-    <h2>7. Changes</h2>
-    <p>This policy may be updated. Updates will be posted here with a new effective date.</p>
+    <h2>7. Policy Updates</h2>
+    <p>This privacy policy may be updated from time to time. Changes will be posted on this page with a revised effective date.</p>
 
     <h2>8. Contact</h2>
-    <p>Contact us at <a href="contact.html">contact</a> for privacy inquiries.</p>
+    <p>For privacy-related questions, email <a href="mailto:astika327@gmail.com">astika327@gmail.com</a> or visit our <a href="contact.html">contact page</a>.</p>
   </main>
+  <div data-include="partials/footer.html"></div>
+  <script src="assets/js/include.js"></script>
 </body>
 </html>
