@@ -20,6 +20,14 @@ async function includePartials() {
   document.dispatchEvent(new CustomEvent('partials:ready'));
 }
 
+// ===== Helper: isi tahun berjalan di footer =====
+function updateFooterYear() {
+  const yearEl = document.getElementById('y');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+}
+
 // ===== Aktifkan link nav sesuai halaman =====
 function setActiveNav() {
   const current = document.body?.dataset?.page || '';
@@ -223,6 +231,7 @@ class Slider {
 // ===== Init sequence =====
 (async function init() {
   await includePartials();             // 1) inject partials dulu
+  updateFooterYear();                  // 1b) isi tahun setelah partial siap
   setActiveNav();                      // 2) highlight nav
   hookMobileNav();                     // 3) aktifkan mobile menu
   // 4) inisialisasi slider (baik di DOM utama maupun yang datang dari partial)
@@ -232,6 +241,7 @@ class Slider {
   document.addEventListener('partials:ready', () => {
     setActiveNav();
     hookMobileNav();
+    updateFooterYear();
     document.querySelectorAll('.slider').forEach((s) => {
       if (!s.__inited) {
         new Slider(s);
