@@ -101,7 +101,7 @@ ul.clean li{margin:.4rem 0;color:var(--muted)}
   padding: 24px 0;
 }
 
-.logo {
+.tech-logos .logo {
   flex: 0 1 auto;
   display: flex;
   align-items: center;
@@ -109,15 +109,6 @@ ul.clean li{margin:.4rem 0;color:var(--muted)}
   height: 48px;
 }
 
-.logo img {
-  max-height: 32px;       /* tinggi logo */
-  width: auto;
-  opacity: 0.9;           /* biar lebih soft */
-  transition: opacity .2s;
-}
-.logo img:hover {
-  opacity: 1;
-}
 .devices{
   position:relative;
   display:flex; align-items:flex-end; justify-content:center;
@@ -178,13 +169,13 @@ ul.clean li{margin:.4rem 0;color:var(--muted)}
   padding:20px;
   margin-top:24px;
 }
-.tech-logos svg{
+.tech-logos .logo svg{
   width:40px; height:40px;
   display:block;
   opacity:.9;
-  transition:.2s;
+  transition:opacity .2s, transform .2s;
 }
-.tech-logos svg:hover{
+.tech-logos .logo svg:hover{
   opacity:1;
   transform: translateY(-2px);
 }
@@ -252,8 +243,8 @@ ul.clean li{margin:.4rem 0;color:var(--muted)}
 .tech-logos { margin-top: 28px; }
 .certs     { margin-top: 36px; }
 
-.tech-logos svg { width:40px; height:40px; }
-@media (max-width:640px){ .tech-logos svg{ width:32px; height:32px; } }
+.tech-logos .logo svg { width:40px; height:40px; }
+@media (max-width:640px){ .tech-logos .logo svg{ width:32px; height:32px; } }
 
 section.certs .cert{
   display:flex; align-items:center; gap:14px;
