@@ -72,6 +72,23 @@
 </div>
     </section>
 
+     <section id="ai-widget" style="max-width:720px;margin:24px auto;padding:16px;border:1px solid #e5e7eb;border-radius:12px">
+  <h3 style="margin:0 0 12px;">Ask AI</h3>
+  <form id="ai-form">
+    <textarea id="ai-input" rows="3" placeholder="Tulis pertanyaan…" style="width:100%;padding:12px;border-radius:8px"></textarea>
+    <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+      <button id="ai-send" type="submit" style="padding:10px 16px;border-radius:8px;cursor:pointer">Kirim</button>
+      <span id="ai-status" style="font-size:12px;color:#6b7280"></span>
+    </div>
+  </form>
+  <pre id="ai-output" style="white-space:pre-wrap;font-family:inherit;margin-top:12px"></pre>
+</section>
+
+<!-- load JS di akhir body -->
+<script src="assets/js/ai.js"></script>
+
+
+
                <!-- ini baru -->
       <section class="section container logos">
          <div class="tech-logos">
