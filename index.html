@@ -42,6 +42,7 @@
 <meta name="theme-color" content="#8B5E34">
 <!-- === END: Social Preview + SEO === -->
 
+<script src="./assets/js/ai.js" defer></script>
 
 
 </head>
@@ -72,20 +73,72 @@
 </div>
     </section>
 
-     <section id="ai-widget" style="max-width:720px;margin:24px auto;padding:16px;border:1px solid #e5e7eb;border-radius:12px">
-  <h3 style="margin:0 0 12px;">Ask AI</h3>
-  <form id="ai-form">
-    <textarea id="ai-input" rows="3" placeholder="Tulis pertanyaan…" style="width:100%;padding:12px;border-radius:8px"></textarea>
-    <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
-      <button id="ai-send" type="submit" style="padding:10px 16px;border-radius:8px;cursor:pointer">Kirim</button>
-      <span id="ai-status" style="font-size:12px;color:#6b7280"></span>
-    </div>
-  </form>
-  <pre id="ai-output" style="white-space:pre-wrap;font-family:inherit;margin-top:12px"></pre>
+<section style="max-width:720px;margin:24px auto;font-family:system-ui">
+  <h3>Tanya Website</h3>
+  <div style="display:flex;gap:8px;align-items:center">
+    <input id="q" placeholder="Tanya apa saja…" style="flex:1;padding:10px;border:1px solid #ddd;border-radius:8px">
+    <select id="model" style="padding:10px;border:1px solid #ddd;border-radius:8px">
+      <option value="x-ai/grok-4-fast:free" selected>Grok 4 Fast (free)</option>
+      <option value="qwen/qwen2.5-7b-instruct:free">Qwen 7B (free)</option>
+      <option value="meta-llama/llama-3.1-8b-instruct:free">Llama 3.1 8B (free)</option>
+      <option value="google/gemma-7b-it:free">Gemma 7B (free)</option>
+      <option value="mistralai/mistral-7b-instruct:free">Mistral 7B (free)</option>
+    </select>
+    <button id="go" style="padding:10px 14px;border-radius:8px">Tanya</button>
+  </div>
+  <pre id="out" style="min-height:84px;background:#f4e0e0;color:rgb(0, 0, 0);padding:12px;margin-top:12px;white-space:pre-wrap;border-radius:8px"></pre>
 </section>
 
+<script>
+(() => {
+  const API = 'https://long-sunset-5416.baliwebdevelover.workers.dev/api/or';
+  const $ = id => document.getElementById(id);
+  const q = $('q'), sel = $('model'), go = $('go'), out = $('out');
+
+  async function ask(prompt, model){
+    const res = await fetch(API, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ prompt, model })
+    });
+    const text = await res.text();
+    const ct = res.headers.get('content-type') || '';
+    if (!ct.includes('application/json')) throw new Error(`Non-JSON ${res.status}: ${text.slice(0,120)}`);
+    const j = JSON.parse(text);
+    if (!res.ok) throw new Error(j.error || j.detail || 'API error');
+    return j.output ||
+           j.choices?.[0]?.message?.content ||
+           j.choices?.[0]?.text ||
+           JSON.stringify(j, null, 2);
+  }
+
+  async function onAsk(){
+    const prompt = q.value.trim();
+    if (!prompt) { out.textContent = 'Ketik pertanyaan dulu ya.'; return; }
+    out.textContent = 'Loading…'; go.disabled = true; go.textContent = '…';
+    try {
+      const ans = await ask(prompt, sel.value);
+      out.textContent = ans || '(kosong)';
+    } catch (e) {
+      out.textContent = 'Error: ' + e.message;
+      console.error(e);
+    } finally {
+      go.disabled = false; go.textContent = 'Tanya';
+    }
+  }
+
+  go.addEventListener('click', onAsk);
+  q.addEventListener('keydown', e => { if (e.key === 'Enter') onAsk(); });
+})();
+</script>
+
+
+
+
+
+
 <!-- load JS di akhir body -->
-<script src="assets/js/ai.js"></script>
+<!-- <script src="assets/js/ai.js"></script> -->
 
 
 
