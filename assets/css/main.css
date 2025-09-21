@@ -440,3 +440,17 @@ body.vt-fade-out{ animation: vtFadeOut .35s ease both; }
   background: #d9c2a8;
 }
 
+/* AI widget layout */
+.ai-widget{max-width:680px;margin:24px auto;padding:0 16px}
+.ai-row{display:flex;gap:8px;flex-wrap:wrap}
+.ai-row input{flex:1 1 220px;min-width:0;box-sizing:border-box}
+.ai-row select{flex:0 0 180px}
+.ai-row button{flex:0 0 110px}
+@media (max-width:480px){
+  .ai-row input,.ai-row select,.ai-row button{flex:1 1 100%}
+}
+.ai-out{
+  background:#987458;color:rgb(3, 3, 3);padding:12px;margin-top:12px;
+  border-radius:10px;white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;
+}
+.ai-out.err{background:#3b0d0d;color:#ffd7d7}

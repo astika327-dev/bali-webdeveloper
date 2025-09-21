@@ -73,68 +73,60 @@
 </div>
     </section>
 
-<section style="max-width:720px;margin:24px auto;font-family:system-ui">
+<section class="ai-widget">
   <h3>Tanya Website</h3>
-  <div style="display:flex;gap:8px;align-items:center">
-    <input id="q" placeholder="Tanya apa saja…" style="flex:1;padding:10px;border:1px solid #ddd;border-radius:8px">
-    <select id="model" style="padding:10px;border:1px solid #ddd;border-radius:8px">
+  <div class="ai-row">
+    <input id="q" placeholder="Tanya apa saja…">
+    <select id="model">
+      <option value="mistralai/mistral-7b-instruct:free">Mistral 7B (free)</option>
       <option value="x-ai/grok-4-fast:free" selected>Grok 4 Fast (free)</option>
       <option value="qwen/qwen2.5-7b-instruct:free">Qwen 7B (free)</option>
       <option value="meta-llama/llama-3.1-8b-instruct:free">Llama 3.1 8B (free)</option>
       <option value="google/gemma-7b-it:free">Gemma 7B (free)</option>
-      <option value="mistralai/mistral-7b-instruct:free">Mistral 7B (free)</option>
+      
     </select>
-    <button id="go" style="padding:10px 14px;border-radius:8px">Tanya</button>
+    <button id="go">Tanya</button>
   </div>
-  <pre id="out" style="min-height:84px;background:#f4e0e0;color:rgb(0, 0, 0);padding:12px;margin-top:12px;white-space:pre-wrap;border-radius:8px"></pre>
+  <pre id="out" class="ai-out"></pre>
 </section>
-
 <script>
 (() => {
-  const API = 'https://long-sunset-5416.baliwebdevelover.workers.dev/api/or';
-  const $ = id => document.getElementById(id);
-  const q = $('q'), sel = $('model'), go = $('go'), out = $('out');
+  const API='https://long-sunset-5416.baliwebdevelover.workers.dev/api/or';
+  const q = document.getElementById('q');
+  const sel = document.getElementById('model');
+  const btn = document.getElementById('go');
+  const out = document.getElementById('out');
 
-  async function ask(prompt, model){
-    const res = await fetch(API, {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ prompt, model })
-    });
-    const text = await res.text();
-    const ct = res.headers.get('content-type') || '';
-    if (!ct.includes('application/json')) throw new Error(`Non-JSON ${res.status}: ${text.slice(0,120)}`);
-    const j = JSON.parse(text);
-    if (!res.ok) throw new Error(j.error || j.detail || 'API error');
-    return j.output ||
-           j.choices?.[0]?.message?.content ||
-           j.choices?.[0]?.text ||
-           JSON.stringify(j, null, 2);
+  function setOut(txt, isErr=false){
+    out.classList.toggle('err', isErr);
+    out.textContent = txt;
   }
 
-  async function onAsk(){
-    const prompt = q.value.trim();
-    if (!prompt) { out.textContent = 'Ketik pertanyaan dulu ya.'; return; }
-    out.textContent = 'Loading…'; go.disabled = true; go.textContent = '…';
+  btn.onclick = async () => {
+    if (!q.value.trim()) { setOut('Ketik pertanyaan dulu ya.', true); return; }
+    setOut('Loading…', false); btn.disabled = true; btn.textContent = '…';
     try {
-      const ans = await ask(prompt, sel.value);
-      out.textContent = ans || '(kosong)';
+      const res = await fetch(API, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ prompt: q.value, model: sel.value })
+      });
+      const text = await res.text();
+      if (!res.headers.get('content-type')?.includes('application/json')) {
+        setOut(`Non-JSON ${res.status}: ${text.slice(0,120)}`, true);
+      } else {
+        const j = JSON.parse(text);
+        if (!res.ok) setOut(j.error || j.detail || `Error ${res.status}`, true);
+        else setOut(j.output || '(kosong)', false);
+      }
     } catch (e) {
-      out.textContent = 'Error: ' + e.message;
-      console.error(e);
+      setOut('Error: ' + e.message, true);
     } finally {
-      go.disabled = false; go.textContent = 'Tanya';
+      btn.disabled = false; btn.textContent = 'Tanya';
     }
-  }
-
-  go.addEventListener('click', onAsk);
-  q.addEventListener('keydown', e => { if (e.key === 'Enter') onAsk(); });
+  };
 })();
 </script>
-
-
-
-
 
 
 <!-- load JS di akhir body -->
