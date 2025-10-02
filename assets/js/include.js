@@ -251,5 +251,6 @@ class Slider {
   });
 })();
 
+//ini untuk animasinya
 
 
