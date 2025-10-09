@@ -22,9 +22,19 @@ Website ini menampilkan layanan, portfolio, dan kontak untuk calon klien yang in
 │ ├── css/
 │ │ └── main.css # Styling global
 │ ├── js/
-│ │ └── main.js # Script interaktif
+│ │ └── include.js # Script interaktif
 │ └── img/ # Logo, icon, dan gambar
+├── docs-notes/
+│ └── optimization-plan.md # Catatan internal optimasi (tidak dipublikasi)
 └── README.md
+
+---
+
+## 🚢 Deployment
+
+- Situs adalah HTML statis murni, sehingga dapat di-host di **GitHub Pages**, **Cloudflare Pages**, ataupun **Vercel** tanpa konfigurasi build khusus.
+- Pastikan semua file berada di root (tidak ada proses include dinamis); setiap halaman kini sudah memuat header & footer langsung sehingga tidak ada permintaan `fetch` tambahan saat load.
+- Setelah deploy, bersihkan cache CDN bila sebelumnya memakai partial dinamis agar versi baru segera aktif.
 
 ---
 
@@ -34,7 +44,15 @@ Website ini menampilkan layanan, portfolio, dan kontak untuk calon klien yang in
 - ✅ Portfolio project dengan showcase GitHub/FreeCodeCamp  
 - ✅ Integrasi **AI Chat (Grok free)** sebagai demo teknologi AI  
 - ✅ SEO basic: meta title, description, favicon, dan OG tags  
-- ✅ Footer profesional dengan link sosial media  
+- ✅ Footer profesional dengan link sosial media
+
+---
+
+## 🗒️ Dokumentasi Internal
+
+- Rencana optimasi performa & fitur: [`docs-notes/optimization-plan.md`](docs-notes/optimization-plan.md)
+
+Catatan internal disimpan terpisah dari direktori `docs/` bawaan GitHub Pages untuk memastikan domain produksi tetap melayani halaman utama tanpa konflik konfigurasi.
 
 ---
 

@@ -7,26 +7,60 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <meta name="description" content="Selected Bali WebDevelover projects showcasing fast, elegant, and high-converting websites.">
+  <link rel="canonical" href="https://bali-webdevelover.com/portfolio">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portfolio — Bali WebDevelover">
+  <meta property="og:description" content="See Bali WebDevelover client work, mini-apps, and certifications.">
+  <meta property="og:url" content="https://bali-webdevelover.com/portfolio">
+  <meta property="og:site_name" content="Bali WebDevelover">
+  <meta property="og:image" content="https://bali-webdevelover.com/assets/img/logos/ogimg.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Bali WebDevelover portfolio preview">
+  <meta property="og:locale" content="id_ID">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portfolio — Bali WebDevelover">
+  <meta name="twitter:description" content="See Bali WebDevelover client work, mini-apps, and certifications.">
+  <meta name="twitter:image" content="https://bali-webdevelover.com/assets/img/logos/ogimg.png">
+
+  <!-- Icons / PWA -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/logos/vapicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/logos/vapicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#8B5E34">
+
   <link rel="stylesheet" href="assets/css/main.css">
-
-  <!-- inject head partial -->
-<script defer>
-(async () => {
-  try {
-    const res = await fetch('/partials/head.html', { cache: 'no-cache' });
-    if (!res.ok) throw new Error('Failed to load head partial');
-    const html = await res.text();
-    document.head.insertAdjacentHTML('beforeend', html);
-  } catch (err) {
-    console.error(err);
-  }
-})();
-</script>
-
 
 </head>
 <body data-page="portfolio">
-  <div data-include="partials/header.html"></div>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <img class="brand__logo" src="assets/img/logos/logobw.PNG" alt="Bali WebDevelover logo">
+        <span class="brand__name">Bali WebDevelover</span>
+      </a>
+
+      <!-- HAMBURGER -->
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation">
+        <span aria-hidden="true">☰</span>
+      </button>
+
+      <nav class="nav" id="navMenu" aria-label="Primary">
+        <a href="index.html" data-page="home">Home</a>
+        <a href="services.html" data-page="services">Services</a>
+        <a href="portfolio.html" data-page="portfolio">Portfolio</a>
+        <a href="about.html" data-page="about">About</a>
+        <a href="contact.html" data-page="contact">Contact</a>
+      </nav>
+    </div>
+  </header>
   <main class="section container">
     <h1>Selected Work</h1>
     <div class="grid cols-3 mt-3">
@@ -98,7 +132,21 @@
       </div>
     </section>
   </main>
-  <div data-include="partials/footer.html"></div>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="y"></span> <b>Bali WebDevelover — Boutique Web Studio in Bali</b></p>
+      <p>
+        Bali WebDevelover is an independent boutique web studio based in Bali,
+        focused on building fast, elegant, and conversion-driven websites. We believe a website should not only look
+        professional but also work as a valuable asset that drives measurable
+        results for your company.
+      </p>
+    </div>
+    <div class="legal-links">
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
   <script src="assets/js/include.js"></script>
 </body>
 </html>
