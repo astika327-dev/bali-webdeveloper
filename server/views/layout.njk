@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  {% set pageTitle = title or 'Bali WebDevelover – Professional Website Services' %}
+  <title>{{ pageTitle }}</title>
+  {% if description %}
+  <meta name="description" content="{{ description }}">
+  {% endif %}
+  {% if canonical %}
+  <link rel="canonical" href="{{ canonical }}">
+  {% endif %}
+  <meta property="og:title" content="{{ ogTitle or pageTitle }}">
+  {% if ogDescription or description %}
+  <meta property="og:description" content="{{ ogDescription or description }}">
+  {% endif %}
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  {% if ogUrl or canonical %}
+  <meta property="og:url" content="{{ ogUrl or canonical }}">
+  {% endif %}
+  <meta property="og:image" content="{{ ogImage or 'https://bali-webdevelover.com/assets/img/logos/ogimg.png' }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ ogImageAlt or 'Bali WebDevelover — preview gambar' }}">
+  <meta property="og:site_name" content="Bali WebDevelover">
+  <meta property="og:locale" content="id_ID">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ twitterTitle or pageTitle }}">
+  {% if twitterDescription or description %}
+  <meta name="twitter:description" content="{{ twitterDescription or description }}">
+  {% endif %}
+  <meta name="twitter:image" content="{{ twitterImage or ogImage or 'https://bali-webdevelover.com/assets/img/logos/ogimg.png' }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/logos/vapicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/logos/vapicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#8B5E34">
+  {% block head %}{% endblock %}
+</head>
+<body data-page="{{ page|default('') }}">
+  {% include 'partials/header.njk' %}
+  {% block content %}{% endblock %}
+  {% include 'partials/footer.njk' %}
+  <script src="/assets/js/include.js" defer></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,25 +1,3 @@
-// ===== Helper: fetch partials dengan error handling =====
-async function includePartials() {
-  const slots = document.querySelectorAll('[data-include]');
-  if (!slots.length) return;
-
-  const tasks = [...slots].map(async (el) => {
-    const file = el.getAttribute('data-include');
-    if (!file) return;
-    try {
-      const res = await fetch(file, { cache: 'no-cache' });
-      if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-      el.innerHTML = await res.text();
-    } catch (err) {
-      console.error('[includePartials] Gagal memuat', file, err);
-      el.innerHTML = `<div class="include-error" role="alert">Failed to load: ${file}</div>`;
-    }
-  });
-
-  await Promise.all(tasks);
-  document.dispatchEvent(new CustomEvent('partials:ready'));
-}
-
 // ===== Helper: isi tahun berjalan di footer =====
 function updateFooterYear() {
   const yearEl = document.getElementById('y');
@@ -229,27 +207,16 @@ class Slider {
 }
 
 // ===== Init sequence =====
-(async function init() {
-  await includePartials();             // 1) inject partials dulu
-  updateFooterYear();                  // 1b) isi tahun setelah partial siap
-  setActiveNav();                      // 2) highlight nav
-  hookMobileNav();                     // 3) aktifkan mobile menu
-  // 4) inisialisasi slider (baik di DOM utama maupun yang datang dari partial)
-  document.querySelectorAll('.slider').forEach((s) => new Slider(s));
-
-  // Jika nantinya ada partial tambahan yang disuntik setelah page load:
-  document.addEventListener('partials:ready', () => {
-    setActiveNav();
-    hookMobileNav();
-    updateFooterYear();
-    document.querySelectorAll('.slider').forEach((s) => {
-      if (!s.__inited) {
-        new Slider(s);
-        s.__inited = true;
-      }
-    });
+document.addEventListener('DOMContentLoaded', () => {
+  updateFooterYear();
+  setActiveNav();
+  hookMobileNav();
+  document.querySelectorAll('.slider').forEach((s) => {
+    if (!s.__sliderInstance) {
+      s.__sliderInstance = new Slider(s);
+    }
   });
-})();
+});
 
 //ini untuk animasinya
 
