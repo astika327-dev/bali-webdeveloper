@@ -1,0 +1,99 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+<main class="section container">
+  <header class="text-center">
+    <h1>About</h1>
+    <p class="mt-2 muted">Boutique web studio from Bali — precision, performance, and tasteful design.</p>
+  </header>
+
+  <section class="mt-4">
+    <p class="lead">
+      I’m <strong>Astika</strong>. I design and build fast, elegant websites with a calm, premium aesthetic.
+      My work blends clean HTML/CSS/JS, thoughtful UI details, and Core Web Vitals discipline—so your brand feels refined
+      and loads instantly from Bali to World.
+    </p>
+  </section>
+
+  <!-- Value pillars -->
+  <section class="grid cols-3 mt-4">
+    <div class="card">
+      <h3>Design with Restraint</h3>
+      <p class="muted">Minimal, brand-true interfaces. Typography, rhythm, and spacing first—effects only where they add clarity.</p>
+    </div>
+    <div class="card">
+      <h3>Performance as a Feature</h3>
+      <p class="muted">Semantic HTML, accessible patterns, image hygiene, and CWV tuning baked in from day one.</p>
+    </div>
+    <div class="card">
+      <h3>Maintainable by Default</h3>
+      <p class="muted">Static sites for speed and simplicity (GitHub Pages) or WordPress when the project truly needs it.</p>
+    </div>
+  </section>
+
+  <!-- Skills / Tools / Certifications -->
+  <section class="grid cols-3 mt-4">
+    <div class="card">
+      <h3>Skills</h3>
+      <ul class="clean">
+        <li>HTML, CSS, JavaScript (ES6+)</li>
+        <li>Responsive layout & a11y</li>
+        <li>Basic React (components/state)</li>
+        <li>On-page SEO & metadata</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Tools</h3>
+      <ul class="clean">
+        <li>VS Code, Git & GitHub</li>
+        <li>Figma (layout & handoff)</li>
+        <li>Image optimization workflow</li>
+        <li>Analytics setup (GA / Plausible)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Certifications</h3>
+      <ul class="clean">
+        <li><a href="https://www.freecodecamp.org/certification/astika/front-end-development-libraries" target="_blank" rel="noopener">freeCodeCamp — Front End Dev Libraries</a></li>
+        <li><a href="https://www.freecodecamp.org/certification/astika/responsive-web-design" target="_blank" rel="noopener">freeCodeCamp — Responsive Web Design</a></li>
+        <li><a href="https://www.freecodecamp.org/certification/astika/javascript-algorithms-and-data-structures-v8" target="_blank" rel="noopener">freeCodeCamp — Javascript Algorithms and Data Structures</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Compact stats & availability -->
+  <section class="grid cols-3 mt-4">
+    <div class="card">
+      <h3>Focus</h3>
+      <ul class="clean">
+        <li>Landing pages that convert</li>
+        <li>Premium brand/villa sites</li>
+        <li>Clean micro-interactions</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Quality Bar</h3>
+      <ul class="clean">
+        <li>Core Web Vitals: Good</li>
+        <li>Semantic, accessible markup</li>
+        <li>Image & asset hygiene</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Based in Bali</h3>
+      <ul class="clean">
+        <li>EN / ID bilingual</li>
+        <li>Founder-friendly process</li>
+        <li>Lightweight care plans</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Soft CTA -->
+  <section class="mt-5 text-center">
+    <p class="muted">Have a business or brand to elevate?</p>
+    <a class="btn btn-brand" href="/contact">Start a Project</a>
+    <a class="btn" href="/portfolio" style="margin-left:.5rem">See Portfolio</a>
+  </section>
+</main>
+{% endblock %}

@@ -2,28 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contact — Bali WebDevelover</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/main.css">
-
-  <!-- inject head partial -->
-<script defer>
-(async () => {
-  try {
-    const res = await fetch('/partials/head.html', { cache: 'no-cache' });
-    if (!res.ok) throw new Error('Failed to load head partial');
-    const html = await res.text();
-    document.head.insertAdjacentHTML('beforeend', html);
-  } catch (err) {
-    console.error(err);
-  }
-})();
-</script>
-
-
+  <title>Bali WebDevelover</title>
+  <meta http-equiv="refresh" content="0; url=/contact">
+  <link rel="canonical" href="/contact">
+  <script>window.location.replace('/contact');</script>
 </head>
 
 <body data-page="contact">
@@ -64,5 +46,7 @@
   <script src="assets/js/contact.js" defer></script>
 </body>
 
-
+<body>
+  <p>Page moved. Continue to <a href="/contact">/contact</a>.</p>
+</body>
 </html>

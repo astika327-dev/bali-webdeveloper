@@ -29,12 +29,20 @@ Website ini menampilkan layanan, portfolio, dan kontak untuk calon klien yang in
 ---
 
 ## ✨ Fitur Utama
-- ✅ Tampilan modern & elegan (warna coklat pastel khas brand)  
-- ✅ Navigasi sticky + mobile friendly  
-- ✅ Portfolio project dengan showcase GitHub/FreeCodeCamp  
-- ✅ Integrasi **AI Chat (Grok free)** sebagai demo teknologi AI  
-- ✅ SEO basic: meta title, description, favicon, dan OG tags  
-- ✅ Footer profesional dengan link sosial media  
+- ✅ Tampilan modern & elegan (warna coklat pastel khas brand)
+- ✅ Navigasi sticky + mobile friendly
+- ✅ Portfolio project dengan showcase GitHub/FreeCodeCamp
+- ✅ Integrasi **AI Chat (Grok free)** sebagai demo teknologi AI
+- ✅ SEO basic: meta title, description, favicon, dan OG tags
+- ✅ Footer profesional dengan link sosial media
+
+---
+
+## 🛠️ Mengelola Konten
+
+- Seluruh teks dinamis untuk layanan, add-ons, FAQ, portfolio, dan sertifikasi tersentral di **`server/data/site-content.js`**.
+- Saat membutuhkan perubahan konten, update nilai di file tersebut; data akan diteruskan otomatis ke template server-side melalui `res.render` dan juga tersedia sebagai JSON read-only di endpoint `GET /api/content`.
+- Pastikan struktur objek dipertahankan (misal `services.plans`, `services.addons`, `faq`, `portfolio`, `certifications`) agar loop template `{% for plan in services.plans %}` tetap berjalan.
 
 ---
 
