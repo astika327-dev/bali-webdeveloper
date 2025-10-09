@@ -34,40 +34,34 @@
       Let’s talk about your project — I usually reply within 24 hours.
     </p>
 
-    <div class="grid cols-3 mt-4">
-      <!-- WhatsApp -->
-      <div class="card contact-card">
-        <h3>WhatsApp</h3>
-        <p class="muted">Fastest response</p>
-        <a class="btn btn-brand mt-2" href="https://wa.me/62881037549162" target="_blank" rel="noopener">
-          Chat on WhatsApp
-        </a>
-      </div>
+    <form id="contact-form" class="card contact-card contact-form mt-4" novalidate>
+      <h2 class="text-center">Send a message</h2>
+      <p class="muted text-center">Fill in the form and I’ll get back to you shortly.</p>
 
-      <!-- Email -->
-      <div class="card contact-card">
-        <h3>Email</h3>
-        <p class="muted">For proposals or longer briefs</p>
-        <a class="btn mt-2" href="mailto:baliwebdevelover@gmail.com">
-          Send Email
-        </a>
-      </div>
+      <label class="form-label" for="contact-name">Name</label>
+      <input class="form-input" type="text" id="contact-name" name="name" autocomplete="name" placeholder="Your full name" required>
 
-      <!-- GitHub -->
-      <div class="card contact-card">
-        <h3>GitHub</h3>
-        <p class="muted">View my code & projects</p>
-        <a class="btn mt-2" href="https://github.com/astika327-dev" target="_blank" rel="noopener">
-          @astika327-dev
-        </a>
-      </div>
-    </div>
+      <label class="form-label" for="contact-email">Email</label>
+      <input class="form-input" type="email" id="contact-email" name="email" autocomplete="email" placeholder="you@example.com" required>
 
-    <p class="mt-5 text-center muted">📍 Based in Bali, Indonesia</p>
+      <label class="form-label" for="contact-whatsapp">WhatsApp Number</label>
+      <input class="form-input" type="tel" id="contact-whatsapp" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="e.g. +62 881-xxxx-xxxx">
+
+      <label class="form-label" for="contact-message">Project details</label>
+      <textarea class="form-input" id="contact-message" name="message" rows="4" placeholder="Tell me about your project" required></textarea>
+
+      <button class="btn btn-brand" type="submit">Send Message</button>
+
+      <p id="contact-status" class="form-status" role="status" aria-live="polite"></p>
+    </form>
+
+    <p class="mt-5 text-center muted">Prefer WhatsApp? <a href="https://wa.me/62881037549162" target="_blank" rel="noopener">Chat directly here</a>.</p>
+    <p class="text-center muted">📍 Based in Bali, Indonesia</p>
   </main>
 
   <div data-include="partials/footer.html"></div>
   <script src="assets/js/include.js"></script>
+  <script src="assets/js/contact.js" defer></script>
 </body>
 
 

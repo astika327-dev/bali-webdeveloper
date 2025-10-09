@@ -407,7 +407,6 @@ body.vt-fade-out{ animation: vtFadeOut .35s ease both; }
 
 /* contact form */
 .contact-card {
-  text-align: center;
   border: 1px solid #eee;
   border-radius: 14px;
   padding: 1.5rem;
@@ -418,6 +417,54 @@ body.vt-fade-out{ animation: vtFadeOut .35s ease both; }
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0,0,0,.06);
   border-color: var(--brand);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-form h2 {
+  margin: 0;
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--brand-dark, #3f2a17);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font: inherit;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(186, 143, 101, 0.2);
+}
+
+.contact-form .btn {
+  margin-top: 0.5rem;
+}
+
+.form-status {
+  min-height: 1.2rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.form-status.success {
+  color: #1b8354;
+}
+
+.form-status.error {
+  color: #b74141;
 }
 
 /* Tombol konsisten brand */
