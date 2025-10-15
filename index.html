@@ -71,24 +71,46 @@
 </div>
     </section>
 
-<section class="ai-widget">
-  <h3>Tanya Website</h3>
-  <div class="ai-row">
-    <label class="sr-only" for="q">Pertanyaan</label>
-    <input id="q" placeholder="Tanya apa saja…">
-    <label class="sr-only" for="model">Model AI</label>
-    <select id="model">
-      <option value="mistralai/mistral-7b-instruct:free">Mistral 7B (free)</option>
-      <option value="x-ai/grok-4-fast:free" selected>Grok 4 Fast (free)</option>
-      <option value="qwen/qwen2.5-7b-instruct:free">Qwen 7B (free)</option>
-      <option value="meta-llama/llama-3.1-8b-instruct:free">Llama 3.1 8B (free)</option>
-      <option value="google/gemma-7b-it:free">Gemma 7B (free)</option>
-      
-    </select>
-    <button id="go">Tanya</button>
+<section class="ai-widget" id="aiw">
+  <div class="aiw-head">
+    <h3 class="aiw-title">AI</h3>
+    <div class="aiw-controls">
+      <label for="aiw-model" class="sr-only">Model</label>
+      <select id="aiw-model" class="aiw-select" aria-label="Model">
+        <option value="x-ai/grok-4-fast:free" selected>Grok 4 Fast (free)</option>
+        <option value="mistralai/mistral-7b-instruct:free">Mistral 7B (free)</option>
+        <option value="qwen/qwen2.5-7b-instruct:free">Qwen 2.5 7B (free)</option>
+        <option value="meta-llama/llama-3.1-8b-instruct:free">Llama 3.1 8B (free)</option>
+        <option value="google/gemma-7b-it:free">Gemma 7B (free)</option>
+      </select>
+
+      <button id="aiw-clear" class="aiw-btn aiw-ghost" type="button" title="Clear chat">Clear</button>
+    </div>
   </div>
-  <pre id="out" class="ai-out"></pre>
+
+  <div id="aiw-chat" class="aiw-chat" aria-live="polite" aria-busy="false"></div>
+
+  <form id="aiw-form" class="aiw-form" autocomplete="off">
+    <label for="aiw-input" class="sr-only">Pertanyaan</label>
+    <textarea id="aiw-input" class="aiw-input" placeholder="Tanya apa saja…"
+      rows="1" required></textarea>
+
+    <div class="aiw-form-actions">
+      <span id="aiw-hint" class="aiw-hint">Enter untuk kirim • Shift+Enter baris baru</span>
+      <button id="aiw-send" class="aiw-btn aiw-primary" type="submit" aria-label="Kirim">Kirim</button>
+    </div>
+  </form>
+
+  <div class="aiw-foot">
+    <details class="aiw-system">
+      <summary>Pengaturan lanjutan</summary>
+      <label for="aiw-system" class="aiw-srlabel">System prompt (opsional)</label>
+      <textarea id="aiw-system" class="aiw-system-input" placeholder="Aturan gaya/jawaban untuk model (opsional)"></textarea>
+    </details>
+    <p class="aiw-disclaimer">Jangan kirim rahasia.</p>
+  </div>
 </section>
+
 <script>
 (() => {
   const API='https://long-sunset-5416.baliwebdevelover.workers.dev/api/or';

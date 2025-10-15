@@ -572,5 +572,34 @@ h3 { font-size: clamp(18px, 4.4vw, 24px); line-height: 1.3; }
   * { animation: none !important; transition: none !important; }
 }
 
+/* ===== AI Widget (enterprise-ish, no drama) ===== */
+.ai-widget {border:1px solid #e6e6e6; border-radius:14px; padding:16px; background:#fff}
+.aiw-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:8px}
+.aiw-title{font-size:1.1rem; font-weight:700; margin:0}
+.aiw-controls{display:flex; gap:8px; align-items:center}
+.aiw-select{padding:8px 10px; border:1px solid #ddd; border-radius:10px; background:#fafafa}
+.aiw-btn{appearance:none; border:1px solid #ddd; background:#fff; padding:8px 12px; border-radius:10px; cursor:pointer}
+.aiw-btn:disabled{opacity:.6; cursor:not-allowed}
+.aiw-primary{background:#0a0a0a; color:#fff; border-color:#0a0a0a}
+.aiw-ghost{background:#fafafa}
+.aiw-chat{display:flex; flex-direction:column; gap:12px; padding:8px; height:min(56vh, 520px); overflow:auto; background:#fcfcfd; border:1px solid #eee; border-radius:12px}
+.aiw-msg{display:flex; gap:10px; align-items:flex-start}
+.aiw-msg .aiw-avatar{width:28px; height:28px; border-radius:50%; background:#eee; flex:none; display:grid; place-items:center; font-size:.8rem}
+.aiw-msg .aiw-bubble{max-width:80%; padding:10px 12px; border-radius:14px; white-space:pre-wrap; word-wrap:break-word; line-height:1.5}
+.aiw-msg.user .aiw-bubble{background:#e8f0ff; border:1px solid #d7e2ff}
+.aiw-msg.assistant .aiw-bubble{background:#f5f5f5; border:1px solid #ececec}
+.aiw-msg.meta .aiw-bubble{background:#fff3cd; border:1px solid #ffe69c}
+.aiw-toolbar{display:flex; gap:8px; margin-top:6px}
+.aiw-toolbar button{font-size:.825rem; padding:4px 8px; border-radius:8px; border:1px solid #ddd; background:#fff; cursor:pointer}
+.aiw-form{margin-top:12px; display:grid; gap:8px}
+.aiw-input{width:100%; resize:none; border:1px solid #ddd; border-radius:12px; padding:10px 12px; min-height:44px; line-height:1.5}
+.aiw-form-actions{display:flex; align-items:center; justify-content:space-between; gap:10px}
+.aiw-hint{font-size:.8rem; color:#666}
+.aiw-foot{margin-top:8px}
+.aiw-system summary{cursor:pointer; font-size:.9rem}
+.aiw-system-input{width:100%; margin-top:8px; border:1px dashed #ccc; border-radius:10px; padding:8px}
+.sr-only,.aiw-srlabel{position:absolute!important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+.aiw-typing{display:inline-block; min-width:1ch; animation:blink 1s steps(1,end) infinite}
+@keyframes blink{50%{opacity:.35}}
+.aiw-badge{font-size:.75rem; color:#555}
 
-/*ini untuk page blog*/
